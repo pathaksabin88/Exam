@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    {# Make modifiable head elements #}
+    <head>
+        {% load staticfiles %}
+        <title>{% block title %}Home {% endblock title %} | Exam</title>
+        {% block head_favicon %}
+            <link rel="icon" type="image/png"
+                  href="#">
+        {% endblock head_favicon %}
+        {% block head_meta %}
+            {% block head_meta_charset %}
+                <meta http-equiv="Content-Type"
+                      content="text/html; charset=utf-8" />
+            {% endblock head_meta_charset %}
+            {% block head_meta_contentlanguage %}
+                <meta http-equiv="Content-Language" value="en-US" />
+            {% endblock head_meta_contentlanguage %}
+            {% block head_meta_viewport %}
+                <meta name="viewport"
+                      content="width=device-width, initial-scale=1.0">
+            {% endblock head_meta_viewport %}
+        {% endblock head_meta %}
+        {% block head_css %}
+            {% block head_css_site %}
+                <link href="{% static 'exam/stylesheets/bootstrap.css' %}" rel="stylesheet" type="text/css">
+                <link href="{% static 'exam/stylesheets/select2.css' %}" rel="stylesheet" type="text/css">
+                <link href="{% static 'exam/stylesheets/custom.css' %}" rel="stylesheet" type="text/css">
+            {% endblock head_css_site %}
+            {% block head_css_section %}{% endblock head_css_section %}
+            {% block head_css_page %}{% endblock head_css_page %}
+        {% endblock head_css %}
+        {% block head_js %}
+            {% block head_js_site %}
+                <script src="{% static 'exam/javascripts/jquery-2.2.0.min.js' %}"></script>
+                <script src="{% static 'exam/javascripts/bootstrap.js' %}"></script>
+                <script src="{% static 'exam/javascripts/select2.full.min.js' %}"></script>
+                <script src="{% static 'exam/javascripts/jquery.noty.packaged.min.js' %}"></script>
+                <script src="{% static 'exam/javascripts/jquery-ui.js' %}"></script>
+            {% endblock head_js_site %}
+        {% endblock head_js %}
+    </head>
+    <body>
+        {# Navigation Menu #}
+        {% include 'exam/layouts/header.html' %}
+        {# The Document Body #}
+        <div id="site-wrapper">
+            {% block content %}
+                if you see this, something is wrong!
+            {% endblock content %}
+        </div>
+        {# The Footer #}
+        {% include 'exam/layouts/footer.html' %}
+    </body>
+</html>
